@@ -32,20 +32,26 @@ while dq:
     
     # 방문 가능 체크 X
     # 중복 체크 -> 없으면 반복
-    nx = cx+1
-    if nx not in visit:
-        # 새로운 지점, 시간+1
-        dq.append((nx, ct+1))
-        visit.add(nx)
     
-    nx = cx-1
-    if nx not in visit:
-        # 새로운 지점, 시간+1
-        dq.append((nx, ct+1))
-        visit.add(nx)
+    # nx = cx+1
+    # if nx not in visit:
+    #     # 새로운 지점, 시간+1
+    #     dq.append((nx, ct+1))
+    #     visit.add(nx)
+    
+    # nx = cx-1
+    # if nx not in visit:
+    #     # 새로운 지점, 시간+1
+    #     dq.append((nx, ct+1))
+    #     visit.add(nx)
 
-    nx = cx*2
-    if nx not in visit:
-        # 새로운 지점, 시간+1
-        dq.append((nx, ct+1))
-        visit.add(nx)
+    # nx = cx*2
+    # if nx not in visit:
+    #     # 새로운 지점, 시간+1
+    #     dq.append((nx, ct+1))
+    #     visit.add(nx)
+
+    for nx in (cx + 1, cx - 1, cx * 2):
+        if nx not in visit:
+            dq.append((nx, ct + 1))
+            visit.add(nx)
